@@ -1,0 +1,328 @@
+.chatArea {
+  position: fixed;
+  margin-top: 29px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 85px;
+}
+
+.messagesContainer {
+  margin-top: 80px;
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  padding-bottom: 140px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.message {
+  display: flex;
+  margin-bottom: 20px;
+  animation: fadeInUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.user {
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+
+  .messageContent {
+    background: rgba(74, 144, 226, 0.85);
+    color: white;
+    margin-right: 12px;
+    border-radius: 20px 20px 6px 20px;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(74, 144, 226, 0.3);
+    box-shadow: 0 6px 20px rgba(74, 144, 226, 0.25);
+  }
+}
+
+.assistant {
+  flex-direction: row;
+  justify-content: flex-start;
+
+  .messageContent {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    margin-left: 12px;
+    border-radius: 20px 20px 20px 6px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  font-size: 16px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.avatarImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.messageContent {
+  max-width: 75%;
+  padding: 18px 24px;
+  font-size: 16px;
+  line-height: 1.5;
+  word-wrap: break-word;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 400;
+}
+
+.messageContent:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.inputContainer {
+  position: absolute;
+  transform: translateY(-84%);
+  bottom: 68px;
+  left: 0;
+  right: 0;
+  padding: 20px 24px 24px;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  .inputForm {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 30px;
+    padding: 14px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    min-height: 50px;
+  }
+
+  .inputForm:focus-within {
+    border: 1px solid rgba(74, 144, 226, 0.6);
+    box-shadow: 0 8px 24px rgba(74, 144, 226, 0.2);
+    transform: translateY(-2px);
+  }
+}
+
+.customInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 16px;
+  padding: 8px 0;
+  font-weight: 400;
+  line-height: 1.4;
+  min-height: 22px;
+  max-height: 120px;
+  resize: none;
+  font-family: inherit;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 400;
+    opacity: 1;
+  }
+
+  &:disabled {
+    color: rgba(255, 255, 255, 0.4);
+    cursor: not-allowed;
+  }
+}
+
+.customSendButton {
+  background: rgba(74, 144, 226, 0.9);
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(74, 144, 226, 0.3);
+  min-width: 60px;
+  height: fit-content;
+  flex-shrink: 0;
+
+  &:hover:not(:disabled) {
+    background: rgba(74, 144, 226, 1);
+    transform: translateY(-1px) scale(1.02);
+    box-shadow: 0 6px 16px rgba(74, 144, 226, 0.4);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0) scale(0.98);
+    transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &:disabled {
+    background: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.5);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+    opacity: 0.6;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .messagesContainer {
+    margin-top: 70px;
+    padding: 16px;
+    padding-bottom: 120px;
+  }
+
+  .message {
+    margin-bottom: 16px;
+  }
+
+  .messageContent {
+    max-width: 85%;
+    padding: 14px 18px;
+    font-size: 15px;
+  }
+
+  .avatar {
+    width: 44px;
+    height: 44px;
+    font-size: 14px;
+  }
+
+  .inputContainer {
+    bottom: 62px;
+    padding: 16px 20px 20px;
+  }
+
+  .inputContainer .inputForm {
+    padding: 14px 16px;
+    gap: 12px;
+  }
+
+  .customInput {
+    font-size: 15px;
+    padding: 10px 0;
+    line-height: 1.4;
+  }
+
+  .customSendButton {
+    padding: 10px 16px;
+    font-size: 13px;
+    min-width: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .messagesContainer {
+    margin-top: 60px;
+    padding: 12px;
+    padding-bottom: 110px;
+  }
+
+  .message {
+    margin-bottom: 12px;
+  }
+
+  .messageContent {
+    max-width: 90%;
+    padding: 12px 16px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .avatar {
+    width: 40px;
+    height: 40px;
+    font-size: 12px;
+    border-width: 1.5px;
+  }
+
+  .inputContainer {
+    bottom: 58px;
+    padding: 12px 16px 16px;
+  }
+
+  .inputContainer .inputForm {
+    padding: 12px 16px;
+    gap: 10px;
+    border-radius: 24px;
+    min-height: 48px;
+    align-items: flex-end;
+  }
+
+  .customInput {
+    font-size: 14px;
+    padding: 8px 0;
+    line-height: 1.5;
+    min-height: 20px;
+  }
+
+  .customSendButton {
+    padding: 8px 12px;
+    font-size: 12px;
+    border-radius: 16px;
+    min-width: 45px;
+  }
+
+  .user .messageContent {
+    margin-right: 8px;
+    border-radius: 16px 16px 4px 16px;
+  }
+
+  .assistant .messageContent {
+    margin-left: 8px;
+    border-radius: 16px 16px 16px 4px;
+  }
+}

@@ -1,0 +1,38 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  height: 80px;
+  background: rgba(44, 44, 46, 0.95);
+  border: 1px solid rgba(58, 58, 60, 0.3);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+.ipt {
+  flex: 1;
+  margin: 0 15px;
+  line-height: 36px;
+  background: transparent;
+  color: #ffffff;
+  font-size: 28px;
+  outline: none;
+  border: none;
+  font-weight: 500;
+}
+.ipt::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 400;
+}
+.wrapper svg {
+  color: #4fc3f7;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.wrapper svg:hover {
+  color: #29b6f6;
+  transform: scale(1.1);
+}
+.wrapper svg:active {
+  transform: scale(0.95);
+}

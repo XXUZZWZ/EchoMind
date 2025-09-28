@@ -1,0 +1,251 @@
+.container {
+  min-height: 100vh;
+  background: #1c1c1e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  /* 注册页面专用黑色字体样式 */
+  color: #000000;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 500px;
+  background: rgba(44, 44, 46, 0.95);
+  border-radius: 20px;
+  padding: 50px 40px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(58, 58, 60, 0.5);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 15px 0;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: #8e8e93;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.form {
+  margin-bottom: 40px;
+}
+.field {
+  margin-bottom: 20px;
+  --rv-field-input-text-color: #333333;
+  --rv-field-placeholder-text-color: #999999;
+  --rv-field-background-color: #f8f9fa;
+  --rv-field-border-color: transparent;
+  border-radius: 12px;
+  overflow: hidden;
+  border: none;
+}
+
+.field :global(.rv-field__control) {
+  padding: 16px;
+  font-size: 16px;
+  background-color: #f8f9fa;
+  color: #333333;
+  border: none;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.field :global(.rv-field__control:focus) {
+  background-color: #ffffff;
+  box-shadow: 0 0 0 2px rgba(79, 195, 247, 0.3);
+}
+
+.field :global(.rv-field__control::placeholder) {
+  color: #999999;
+}
+
+.field :global(.rv-field__clear) {
+  color: #999999;
+}
+
+.field :global(.rv-field__clear:hover) {
+  color: #666666;
+}
+
+.registerBtn {
+  margin-top: 10px;
+  height: 50px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  --rv-button-primary-background-color: #34c759;
+  --rv-button-primary-border-color: #34c759;
+  --rv-button-primary-color: #ffffff;
+  box-shadow: 0 4px 15px rgba(52, 199, 89, 0.3);
+  transition: all 0.3s ease;
+}
+
+.registerBtn:hover {
+  --rv-button-primary-background-color: #28a745;
+  box-shadow: 0 6px 20px rgba(52, 199, 89, 0.4);
+}
+
+.registerBtn:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 8px rgba(52, 199, 89, 0.4);
+}
+
+.loginHint {
+  text-align: center;
+  padding: 20px;
+  background: rgba(52, 199, 89, 0.1);
+  border-radius: 12px;
+  border: 1px dashed rgba(52, 199, 89, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.loginHint p {
+  margin: 0;
+  font-size: 14px;
+  color: #8e8e93;
+}
+
+.loginLink {
+  background: none;
+  border: none;
+  color: #34c759;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.loginLink:hover {
+  color: #28a745;
+}
+
+.error {
+  background: rgba(255, 69, 58, 0.1);
+  color: #ff453a;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  border: 1px solid rgba(255, 69, 58, 0.3);
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+  .container {
+    padding: 15px;
+  }
+
+  .wrapper {
+    padding: 30px 20px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+}
+
+/* 动画效果 */
+.wrapper {
+  animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 输入框清除按钮样式 */
+.field :global(.rv-field__clear) {
+  color: #8e8e93;
+}
+
+.field :global(.rv-field__clear:hover) {
+  color: #ffffff;
+}
+
+.backBtn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(44, 44, 46, 0.8);
+  border: 1px solid rgba(58, 58, 60, 0.5);
+  border-radius: 12px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  z-index: 10;
+}
+
+.backBtn:hover {
+  background: rgba(44, 44, 46, 0.95);
+  transform: translateY(-1px);
+}
+
+.backBtn:active {
+  transform: translateY(0);
+}
+
+/* 注册页面专用全局黑色字体样式 - 只在此页面生效 */
+.container * {
+  color: #000000 !important;
+}
+
+/* 保持某些特殊元素的原有颜色 */
+.container .title {
+  color: #ffffff !important;
+}
+
+.container .subtitle {
+  color: #8e8e93 !important;
+}
+
+.container .loginHint p {
+  color: #8e8e93 !important;
+}
+
+.container .loginLink {
+  color: #34c759 !important;
+}
+
+.container .error {
+  color: #ff453a !important;
+}
+
+.container .backBtn {
+  color: #ffffff !important;
+}

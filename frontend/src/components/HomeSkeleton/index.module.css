@@ -1,0 +1,102 @@
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #1c1c1e;
+  overflow: hidden;
+}
+
+.searchSkeleton {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background: #1c1c1e;
+  border-bottom: 1px solid #3a3a3c;
+  z-index: 1000;
+}
+
+.chatAreaSkeleton {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-top: 80px;
+  display: flex;
+  flex-direction: column;
+}
+
+.headerSkeleton {
+  padding: 30px 20px;
+  border-bottom: 1px solid rgba(58, 58, 60, 0.3);
+}
+
+.messagesSkeleton {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.messageSkeleton {
+  margin-bottom: 16px;
+}
+
+.messageSkeleton:nth-child(odd) {
+  align-self: flex-start;
+  max-width: 70%;
+}
+
+.messageSkeleton:nth-child(even) {
+  align-self: flex-end;
+  max-width: 80%;
+}
+
+.inputSkeleton {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background: rgba(28, 28, 30, 0.95);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(58, 58, 60, 0.3);
+}
+
+/* 响应式适配 */
+@media (max-width: 768px) {
+  .searchSkeleton {
+    padding: 15px;
+  }
+  
+  .headerSkeleton {
+    padding: 20px 15px;
+  }
+  
+  .messagesSkeleton {
+    padding: 15px;
+  }
+  
+  .inputSkeleton {
+    padding: 15px;
+  }
+}
+
+/* 动画效果 */
+.chatAreaSkeleton {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

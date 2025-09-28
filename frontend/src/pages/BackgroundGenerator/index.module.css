@@ -1,0 +1,388 @@
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1c1c1e 0%, #2c2c2e 100%);
+  color: #ffffff;
+}
+
+.content {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.uploadSection {
+  background: rgba(44, 44, 46, 0.8);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(58, 58, 60, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+.uploadSection h3 {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 16px 0;
+  display: flex;
+  align-items: center;
+}
+
+.uploadSection h3::before {
+  content: '📸';
+  margin-right: 8px;
+  font-size: 20px;
+}
+
+.fileInput {
+  display: flex;
+  justify-content: center;
+}
+
+.uploadLabel {
+  display: block;
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.uploadLabel:hover {
+  transform: translateY(-2px);
+}
+
+.preview {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px dashed #4fc3f7;
+  transition: all 0.3s ease;
+  background: rgba(28, 28, 30, 0.5);
+}
+
+.uploadLabel:hover .preview {
+  border-color: #34c759;
+  box-shadow: 0 8px 25px rgba(79, 195, 247, 0.3);
+}
+
+.uploadTip {
+  color: #8e8e93;
+  font-size: 14px;
+  margin-top: 12px;
+  font-weight: 500;
+}
+
+.settingsSection {
+  background: rgba(44, 44, 46, 0.8);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(58, 58, 60, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+.settingsSection h3 {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+  display: flex;
+  align-items: center;
+}
+
+.settingsSection h3::before {
+  content: '🎨';
+  margin-right: 8px;
+  font-size: 20px;
+}
+
+.settings {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.settingGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.settingGroup label {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.settingGroup label::before {
+  content: '•';
+  color: #4fc3f7;
+  font-weight: bold;
+  margin-right: 6px;
+}
+
+.settingGroup select {
+  background: rgba(28, 28, 30, 0.8);
+  border: 1px solid rgba(79, 195, 247, 0.3);
+  border-radius: 10px;
+  color: #ffffff;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.settingGroup select:focus {
+  outline: none;
+  border-color: #4fc3f7;
+  box-shadow: 0 0 0 3px rgba(79, 195, 247, 0.1);
+}
+
+.settingGroup select:hover {
+  border-color: #4fc3f7;
+  background: rgba(28, 28, 30, 0.9);
+}
+
+.settingGroup select option {
+  background: #2c2c2e;
+  color: #ffffff;
+  padding: 8px;
+}
+
+.resultSection {
+  background: rgba(44, 44, 46, 0.8);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(58, 58, 60, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+.resultSection h3 {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 16px 0;
+  display: flex;
+  align-items: center;
+}
+
+.resultSection h3::before {
+  content: '✨';
+  margin-right: 8px;
+  font-size: 20px;
+}
+
+.result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 320px;
+}
+
+.generatedImage {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.generatedImage:hover {
+  transform: scale(1.05);
+}
+
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 300px;
+  border: 2px dashed rgba(79, 195, 247, 0.3);
+  border-radius: 12px;
+  background: rgba(28, 28, 30, 0.3);
+}
+
+.status {
+  color: #4fc3f7;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.tip {
+  color: #8e8e93;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.generateBtn {
+  background: linear-gradient(135deg, #4fc3f7 0%, #29b6f6 100%);
+  border: none;
+  border-radius: 12px;
+  height: 52px;
+  font-weight: 600;
+  font-size: 16px;
+  box-shadow: 0 6px 20px rgba(79, 195, 247, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.generateBtn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.generateBtn:hover::before {
+  left: 100%;
+}
+
+.generateBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(79, 195, 247, 0.4);
+}
+
+.generateBtn:active {
+  transform: translateY(-1px);
+}
+
+.useBtn {
+  background: linear-gradient(135deg, #34c759 0%, #30d158 100%);
+  border: none;
+  border-radius: 12px;
+  height: 52px;
+  font-weight: 600;
+  font-size: 16px;
+  box-shadow: 0 6px 20px rgba(52, 199, 89, 0.3);
+  transition: all 0.3s ease;
+  animation: slideInUp 0.6s ease;
+  position: relative;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.useBtn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.useBtn:hover::before {
+  left: 100%;
+}
+
+.useBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(52, 199, 89, 0.4);
+}
+
+.useBtn:active {
+  transform: translateY(-1px);
+}
+
+/* 按钮分隔线 */
+.actions::after {
+  content: '';
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(79, 195, 247, 0.3), transparent);
+  margin: 4px auto;
+  display: block;
+}
+
+/* 当有使用按钮时隐藏分隔线 */
+.actions:has(.useBtn)::after {
+  display: none;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+  .actions {
+    max-width: 100%;
+    padding: 0 16px;
+    gap: 14px;
+  }
+  
+  .generateBtn,
+  .useBtn {
+    height: 48px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .generateBtn,
+  .useBtn {
+    height: 46px;
+    font-size: 14px;
+  }
+}
+
+/* 加载动画 */
+.generateBtn[disabled] {
+  background: linear-gradient(135deg, #666 0%, #555 100%);
+  cursor: not-allowed;
+}
+
+.generateBtn[disabled]:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* 深色主题优化 */
+@media (prefers-color-scheme: dark) {
+  .container {
+    background: linear-gradient(135deg, #000000 0%, #1c1c1e 100%);
+  }
+  
+  .uploadSection,
+  .settingsSection,
+  .resultSection {
+    background: rgba(28, 28, 30, 0.9);
+    border-color: rgba(58, 58, 60, 0.8);
+  }
+}

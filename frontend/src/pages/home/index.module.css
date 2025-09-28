@@ -1,0 +1,152 @@
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+.loadingOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1c1c1e;
+  z-index: 9999;
+}
+
+.swiper {
+  position: fixed;
+  width: 100%;
+  height: 99.2%;
+  background: transparent;
+}
+
+.search {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10000;
+  background: #1c1c1e;
+  border-bottom: 1px solid #3a3a3c;
+}
+
+/* 左侧加号按钮 */
+.leftFloatingButton {
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  z-index: 1000;
+}
+
+/* 右侧浮球按钮组 */
+.rightFloatingButtons {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  display: flex;
+  gap: 16px;
+  z-index: 1000;
+}
+
+.floatingBall {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.floatingBall:hover {
+  transform: translateY(-2px) scale(1.05);
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.floatingBall:active {
+  transform: translateY(0) scale(0.95);
+  transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.searchButton {
+  background: rgba(74, 144, 226, 0.8);
+  border: 1px solid rgba(74, 144, 226, 0.9);
+}
+
+.searchButton:hover {
+  background: rgba(74, 144, 226, 0.9);
+  border: 1px solid rgba(74, 144, 226, 1);
+}
+
+.icon {
+  width: 26px;
+  height: 26px;
+  color: rgba(255, 255, 255, 0.9);
+  pointer-events: none;
+}
+
+.searchButton .icon {
+  color: rgba(255, 255, 255, 1);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .leftFloatingButton {
+    top: 20px;
+    left: 20px;
+  }
+
+  .rightFloatingButtons {
+    top: 20px;
+    right: 20px;
+    gap: 12px;
+  }
+
+  .floatingBall {
+    width: 52px;
+    height: 52px;
+  }
+
+  .icon {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .leftFloatingButton {
+    top: 15px;
+    left: 15px;
+  }
+
+  .rightFloatingButtons {
+    top: 15px;
+    right: 15px;
+    gap: 10px;
+  }
+
+  .floatingBall {
+    width: 48px;
+    height: 48px;
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+}

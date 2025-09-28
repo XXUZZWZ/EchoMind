@@ -1,0 +1,271 @@
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1e1e20 0%, #2c2c2e 100%);
+  position: relative;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at top center,
+    rgba(74, 144, 226, 0.08) 0%,
+    rgba(74, 144, 226, 0.04) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.header {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(20px);
+  padding: 24px 20px 16px;
+  color: white;
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logoutBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(74, 144, 226, 0.18);
+  border: 1px solid rgba(74, 144, 226, 0.3);
+  color: #e8f1ff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.logoutBtn:hover {
+  background: rgba(74, 144, 226, 0.28);
+  transform: translateY(-1px);
+}
+
+.logoutBtn:active {
+  transform: translateY(0);
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  margin-right: 14px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.userInfo {
+  flex: 1;
+}
+
+.nickname {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 5px 0;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.userId {
+  font-size: 12px;
+  opacity: 0.75;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  padding: 0 20px;
+}
+
+.statItem {
+  text-align: center;
+}
+
+.statValue {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.statLabel {
+  font-size: 12px;
+  opacity: 0.75;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.bio {
+  font-size: 13px;
+  opacity: 0.85;
+  text-align: center;
+  padding: 10px 0;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.tabs {
+  display: flex;
+  background: rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 12px 0;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.65);
+  cursor: pointer;
+  position: relative;
+}
+
+.activeTab {
+  color: #e8f1ff;
+  font-weight: 700;
+}
+
+.activeTab::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 22px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(74, 144, 226, 0.8),
+    rgba(74, 144, 226, 1)
+  );
+  border-radius: 2px;
+}
+
+.content {
+  padding: 16px;
+  background: transparent;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 60px 20px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.emptyIcon {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.emptyTip {
+  font-size: 14px;
+  margin-top: 10px;
+  opacity: 0.75;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.worksList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.workItem {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  contain: content;
+  content-visibility: auto;
+}
+
+.workItem:hover {
+  transform: translateY(-2px);
+  border-color: rgba(74, 144, 226, 0.35);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.workImage {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
+
+.workImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.workInfo {
+  padding: 10px 12px 12px;
+}
+
+.workTitle {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0 0 5px 0;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.workDesc {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 20px 16px 12px;
+  }
+  .nickname {
+    font-size: 16px;
+  }
+  .userId {
+    font-size: 12px;
+  }
+  .tabs {
+    top: 0;
+  }
+  .tab {
+    font-size: 13px;
+    padding: 10px 0;
+  }
+  .worksList {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .worksList {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
